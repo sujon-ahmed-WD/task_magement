@@ -1,0 +1,100 @@
+     {% extends "deshborad/commen_deshborad.html" %}
+     {% block title %}Userdeasborad{% endblock title %}
+         {% block task %}
+    <div class="w-11/12 mx-auto flex sm:flex-row flex-col justify-between gap-4 ">
+        <div class="p-6 rounded-xl shadow-sm w-[50%]  ">
+            <h1 class="mb-2 text-2xl font-samibold">Today's Tasks</h1>
+
+            <div class="flex justify-between ">
+
+                <div>
+                    <div class="flex items-center gap-4 mb-2">
+                        <div class="h-2 w-2 rounded-full bg-green-600"></div>
+                        <div>Complete Project Proposal</div>
+                    </div>
+                    <div class="flex items-center gap-4 mb-2">
+                        <div class="h-2 w-2 rounded-full bg-orange-400"></div>
+                        <div> review team update </div>
+                    </div>
+                    <div class="flex items-center gap-4 mb-2">
+                        <div class="h-2 w-2 rounded-full bg-blue-600"></div>
+                        <div>Prepare for child meeting</div>
+                    </div>
+                </div>
+                <div class="child2 text-gray-500">
+                    <h2>high</h2>
+                    <h2>normal</h2>
+                    <h2>low</h2>
+                </div>
+            </div>
+        </div>
+        <div class="p-6 rounded-xl  shadow-sm w-[50%]">
+            <div class=" grid grid-cols-4 border-b border-gray-100 tex-sm text-gray-500">
+                <div class=" mb-4">TASK TITLE</div>
+                <div class="mb-4">PRIORITY</div>
+                <div class="mb-4">TEAM</div>
+                <div class="mb-4">CREATED AT</div>
+
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="h-2 w-2 rounded-full bg-green-600"></div>
+                    <div class="text-xl font-samibold">Test Low task</div>
+                </div>
+                <div class="px-3  py-1 roed-full bg-blue-50 text-blue-600 text-sm mb-4">Low</div>
+                <div class="flex -space-x-2 mb-4 ">
+                    <div
+                        class="w-8 h-8 p-2 rounded-full border-b border-white-100 bg-blue-500 flex items-center justify-center text-white   ">
+                        CA
+                    </div>
+                    <div class="w-8 h-8 p-2 rounded-full bg-green-500 flex items-center justify-center text-white">
+                        BA
+                    </div>
+                    <div class="w-8 h-8 p-2 rounded-full bg-yellow-500 flex items-center justify-center text-white">
+                        DA
+                    </div>
+                </div>
+                <div class="mb-4">9 month ago</div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="h-2 w-2 rounded-full bg-orange-500"></div>
+                    <div class="text-xl font-samibold">Test Task</div>
+                </div>
+                <div class="px-3 py-1 roed-full bg-gray-50 text-gray-600 text-sm mb-4">Low</div>
+                <div class="flex -space-x-2 mb-4 ">
+                    <div
+                        class="w-8 h-8 p-2 rounded-full border-b border-white-100 bg-red-500 flex items-center justify-center text-white   ">
+                        CA
+                    </div>
+                    <div class="w-8 h-8 p-2 rounded-full bg-purple-600 flex items-center justify-center text-white">
+                        BA
+                    </div>
+                    <div class="w-8 h-8 p-2 rounded-full bg-yellow-500 flex items-center justify-center text-white">
+                        DA
+                    </div>
+                </div>
+                <div class="mb-4">9 month ago</div>
+                <div class="flex items-center gap-4 mb-4">
+                    <div class="h-2 w-2 rounded-full bg-red-600"></div>
+                    <div class="text-xl font-samibold">Test to high</div>
+                </div>
+                <div class="px-3 py-1 roed-full bg-red-50 text-red-600 text-sm mb-4">Low</div>
+                <div class="flex -space-x-2 mb-4 ">
+                    <div
+                        class="w-8 h-8 p-2 rounded-full border-b border-white-100 bg-blue-500 flex items-center justify-center text-white   ">
+                        CA
+                    </div>
+                    <div class="w-8 h-8 p-2 rounded-full bg-green-500 flex items-center justify-center text-white">
+                        BA
+                    </div>
+                    <div class="w-8 h-8 p-2 rounded-full bg-red-500 flex items-center justify-center text-white">
+                        DA
+                    </div>
+                    <div class="w-8 h-8 p-2 rounded-full bg-yellow-500 flex items-center justify-center text-white">
+                        DA
+                    </div>
+                </div>
+                <div class="mb-4">9 month ago</div>
+
+
+            </div>
+        </div>
+    </div>
+        {% endblock task %}

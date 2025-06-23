@@ -1,19 +1,30 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+ 
 
 # Create your views here.
-def home(request):
-    return HttpResponse("Welcome to the task management system")
+def manager_dashboard(request):
+    return render(request,'deshborad/manager_desborard.html')
 
-def contact(request):
-    return HttpResponse(" <h1 style ='color: red'> this is a contact path </h1>")
+def user_dashboard(request):
+    return render(request,'deshborad/user_deasborad.html')
+     
 
-def show_task(request):
-    return HttpResponse("<h1 style='color:green'>This is a show task</h1>")
+def test(request):
+    # names=["Maud","Ahmed","John","tus tus"]
+    # count=0
+    # for name in names:
+    #     count+=1
+    # context={
+    #     "names":["Maud","Ahmed","John","tus tus"],
+    #     "age":22
+         
+    # }
+    context={
+        "names":["M","tu","ahm","tabu"],
+        "age":22
+    }
+    return render(request,'test.html',context)
+    
 
-def show_specific_task(request,id):
-    print("id",id)
-    print("id type", type(id))
-    return HttpResponse("This is the Specific task Case ")
 
   

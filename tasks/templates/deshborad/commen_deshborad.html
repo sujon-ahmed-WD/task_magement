@@ -1,0 +1,113 @@
+{% load static %}    
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static "css/output.css" %}">
+</head>
+
+<body class="p-6">
+    <!-- nav section -->
+    <header class="w-11/12 mx-auto justify-between flex item-center mb-6">
+        <h1 class="text-2xl font-semibold">Dashboard</h1>
+        <div class=" flex justify-center gap-4">
+            <button class="p-2  rounded-full hover:bg-gray-100 ">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                    stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M14.857 17.082a23.848 23.848 0 0 0 5.454-1.31A8.967 8.967 0 0 1 18 9.75V9A6 6 0 0 0 6 9v.75a8.967 8.967 0 0 1-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 0 1-5.714 0m5.714 0a3 3 0 1 1-5.714 0" />
+                </svg>
+            </button>
+            <button class="w-10 h-10 bg-blue-500 rounded-full text-white font-samibold">B</button>
+        </div>
+    </header>
+
+    <!--  Card Grid -->
+    <main>
+        <div class="grid grid-cols-4 gap-4 mb-6">
+            <!-- Total Task -->
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h3 class="text-sm font-medium text-gray-500 font-medium mb-1">Total Task</h3>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-1">3</h3>
+                        <h3 class="text-gray-500 text-sm">11 last month</h3>
+                    </div>
+                    <div class="p-3 bg-blue-100 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="h-6 w-6 text-blue-600 rounded-full">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <!-- Complete task -->
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h3 class="text-sm font-medium text-gray-500 font-medium mb-1">Complete Task</h3>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-1">2</h3>
+                        <h3 class="text-gray-500 text-sm">11 last month</h3>
+                    </div>
+                    <div class="p-3 bg-green-100 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="h-6 w-6 text-green-500 rounded-full ">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <!-- Progress -->
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h3 class="text-sm font-medium text-gray-500 font-medium mb-1">Task in Progress</h3>
+                <div class="flex justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-1">4</h3>
+                        <h3 class="text-gray-500 text-sm">11 last month</h3>
+                    </div>
+                    <div class="p-3 bg-yellow-100 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="h-6 w-6 text-blue-600 rounded-full">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-xl p-6 shadow-sm">
+                <h3 class="text-sm font-medium text-gray-500 font-medium mb-1">Total Task</h3>
+                <div class="flex justify-between">
+                    <div>
+                        <h3 class="text-3xl font-bold mb-1">3</h3>
+                        <h3 class="text-gray-500 text-sm">11 last month</h3>
+                    </div>
+                    <div class="p-3 bg-blue-100 rounded-full">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="h-6 w-6 text-blue-600 rounded-full">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Task Table ... ... ...  -->
+         {% block task %}
+
+         {% endblock task %}
+
+
+
+    </main>
+    {% comment %} footer {% endcomment %}
+     
+</body>
+
+</html>
+
+                

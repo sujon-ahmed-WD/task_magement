@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <title>Document</title>
+</head>
+<body>
+    
+    {% comment %} {% for name in  names %}
+    {% if not name == 'John' %}
+           <p>{{name}}</p>
+       {% endif %}
+       {{count |add:1 }}
+    {% endfor %}
+    {% with a=10 %}
+    <div>value of a:{{a}}</div>
+    {{count}}
+    {% endwith %} {% endcomment %}
+
+    {% for name in names  %}
+        <p>{{name}}</p>
+    {% endfor %}
+     
+
+         
+     
+</body>
+</html>
