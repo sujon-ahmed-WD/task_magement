@@ -29,28 +29,32 @@
     <main>
         <div class="grid grid-cols-4 gap-4 mb-6">
             <!-- Total Task -->
-            <div class="bg-white rounded-xl p-6 shadow-sm">
-                <h3 class="text-sm font-medium text-gray-500 font-medium mb-1">Total Task</h3>
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-3xl font-bold mb-1">3</h3>
-                        <h3 class="text-gray-500 text-sm">11 last month</h3>
-                    </div>
-                    <div class="p-3 bg-blue-100 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="h-6 w-6 text-blue-600 rounded-full">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
-                        </svg>
-                    </div>
-                </div>
-            </div>
+             <a href="{% url "manager-dashboard" %}">
+                 
+                 <div class="bg-white rounded-xl p-6 shadow-sm">
+                     <h3 class="text-sm font-medium text-gray-500 font-medium mb-1">Total Task</h3>
+                     <div class="flex justify-between items-start">
+                         <div>
+                             <h3 class="text-3xl font-bold mb-1">{{counts.total}}</h3>
+                             <h3 class="text-gray-500 text-sm">11 last month</h3>
+                         </div>
+                         <div class="p-3 bg-blue-100 rounded-full">
+                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                 stroke="currentColor" class="h-6 w-6 text-blue-600 rounded-full">
+                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                     d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                             </svg>
+                         </div>
+                     </div>
+                 </div>
+             </a>
             <!-- Complete task -->
+             <a href="{% url 'manager-dashboard' %}?type=completed">
             <div class="bg-white rounded-xl p-6 shadow-sm">
                 <h3 class="text-sm font-medium text-gray-500 font-medium mb-1">Complete Task</h3>
                 <div class="flex justify-between items-start">
                     <div>
-                        <h3 class="text-3xl font-bold mb-1">2</h3>
+                        <h3 class="text-3xl font-bold mb-1">{{counts.completed}}</h3>
                         <h3 class="text-gray-500 text-sm">11 last month</h3>
                     </div>
                     <div class="p-3 bg-green-100 rounded-full">
@@ -62,12 +66,14 @@
                     </div>
                 </div>
             </div>
+             </a>
             <!-- Progress -->
+             <a href="{% url 'manager-dashboard' %}?type= in-progress">
             <div class="bg-white rounded-xl p-6 shadow-sm">
                 <h3 class="text-sm font-medium text-gray-500 font-medium mb-1">Task in Progress</h3>
                 <div class="flex justify-between">
                     <div>
-                        <h3 class="text-3xl font-bold mb-1">4</h3>
+                        <h3 class="text-3xl font-bold mb-1">{{counts.in_progress}}</h3>
                         <h3 class="text-gray-500 text-sm">11 last month</h3>
                     </div>
                     <div class="p-3 bg-yellow-100 rounded-full">
@@ -78,23 +84,28 @@
                         </svg>
                     </div>
                 </div>
+            
             </div>
-            <div class="bg-white rounded-xl p-6 shadow-sm">
-                <h3 class="text-sm font-medium text-gray-500 font-medium mb-1">Total Task</h3>
-                <div class="flex justify-between">
-                    <div>
-                        <h3 class="text-3xl font-bold mb-1">3</h3>
-                        <h3 class="text-gray-500 text-sm">11 last month</h3>
-                    </div>
-                    <div class="p-3 bg-blue-100 rounded-full">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
-                            stroke="currentColor" class="h-6 w-6 text-blue-600 rounded-full">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
-                        </svg>
+            </a>
+            <a href="{% url "manager-dashboard" %}?type=pending">
+                <div class="bg-white rounded-xl p-6 shadow-sm">
+                    <h3 class="text-sm font-medium text-gray-500 font-medium mb-1">TODOS</h3>
+                    <div class="flex justify-between">
+                        <div>
+                            <h3 class="text-3xl font-bold mb-1">{{counts.pending}}</h3>
+                            <h3 class="text-gray-500 text-sm">11 last month</h3>
+                        </div>
+                        <div class="p-3 bg-blue-100 rounded-full">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="h-6 w-6 text-blue-600 rounded-full">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 0 0 2.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 0 0-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 0 0 .75-.75 2.25 2.25 0 0 0-.1-.664m-5.8 0A2.251 2.251 0 0 1 13.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25ZM6.75 12h.008v.008H6.75V12Zm0 3h.008v.008H6.75V15Zm0 3h.008v.008H6.75V18Z" />
+                            </svg>
+                        </div>
                     </div>
                 </div>
-            </div>
+
+            </a>
         </div>
         <!-- Task Table ... ... ...  -->
          {% block task %}

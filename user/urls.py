@@ -1,10 +1,10 @@
 from django.urls import path
-from user.views import home
+from user.views import Sign_up
 
 
 
 urlpatterns = [
-    path("home/",home),
+    path('signup/', Sign_up, name='signup'),
      
     
 ]
