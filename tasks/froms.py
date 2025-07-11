@@ -30,6 +30,9 @@ class TaskForm(forms.Form):
 
 class StyledFormMixin:
     """ Mixinge to apply style to from field"""
+    def __init__(self,*arg,**kwargs):
+        super().__init__(*arg,**kwargs)
+        self.apply_styled_widgets()
     
     default_classes="border-2 border-gray-300 w-full p-3 rounded-lg shadow-sm focus:outline-none focus:border-rose-500 focus:ring-rose-500"
     
