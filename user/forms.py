@@ -2,6 +2,7 @@ import re
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from tasks.forms import StyledFormMixin
+from django.contrib.auth.forms import AuthenticationForm
 
 from django import forms
 
@@ -19,9 +20,15 @@ class RegisterForm(UserCreationForm):
 class CustomRegisterForm(StyledFormMixin, forms.ModelForm):
     password1 = forms.CharField(widget=forms.PasswordInput)
     conform_password = forms.CharField(widget=forms.PasswordInput)
+    
     class Meta:
+        
         model = User
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'conform_password']
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.apply_styled_widgets()
         
     def clean_password1(self): # field Error 
         password1 = self.cleaned_data.get('password1')
@@ -51,6 +58,7 @@ class CustomRegisterForm(StyledFormMixin, forms.ModelForm):
     
         return email
     
+    
     def clean(self): # not field Error
          cleaned_data = super().clean()
          password1 = cleaned_data.get('password1')
@@ -60,5 +68,8 @@ class CustomRegisterForm(StyledFormMixin, forms.ModelForm):
              raise forms.ValidationError("Password and conform password are not same")
          
         
-
+class LoginForm(StyledFormMixin,AuthenticationForm):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.apply_styled_widgets()
    
