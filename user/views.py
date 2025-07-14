@@ -1,12 +1,13 @@
+from django.http import HttpResponse
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 
-# from django.contrib.auth.models import USER
+from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 import user
 from user.forms import CustomRegisterForm, RegisterForm
 from django.contrib import messages
-# from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.tokens import default_token_generator
 
 from user.forms import LoginForm
 
@@ -25,7 +26,7 @@ def Sign_up(request):
             messages.success(
                 request, "A confirmation mail has been sent. Please check your email."
             )
-            print("Redirecting to sign-in page...")
+            
             return redirect("sign-in")
         else:
             print("FORM is not valid")
@@ -65,3 +66,23 @@ def logout_view(request):
     if request.method == "POST":
         logout(request)
         return redirect("sign-in")
+
+
+def activate_user(request, user_id, token):
+    try:
+        print(f"Received user_id={user_id}, token={token}")
+        user = User.objects.get(id=user_id)
+        if default_token_generator.check_token(user, token):
+            print("Token valid. Activating user...")
+            user.is_active = True
+            user.save()
+            return redirect('sign-in')
+        else:
+            print("Invalid token")
+            return HttpResponse('Invalid Id or token')
+    except User.DoesNotExist:
+        print("User not found")
+        return HttpResponse('User not found')
+
+def admin_dashboard(request):
+    return render(request,'admin/dashboard.html')
