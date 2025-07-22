@@ -13,20 +13,11 @@ class TaskForm(forms.Form):
         print(args,kwargs)
         employees=kwargs.pop("employees",[])
         super().__init__(*args,**kwargs)
-        self.fields['assigned_to'].choices=[
-            (emp.id,emp.name) for emp in employees
+        
+        self.fields['assigned_to'].choices = [
+            (emp.id, emp.username) for emp in employees 
         ]
-        super().__init__(*args,**kwargs)
 
- #-----------------------------     Django Model From----------------------------------------------------------------
-# class TaskModelForm(forms.ModelForm):
-#     class Meta:
-#         model=Task
-#         fields=['title','description','due_date']
-#         # exclude=['assigned_to','is_completed','create_at'] ata hocca amer kon feild dkaba nh oigolo chara kaj korva
-#         widgets = {
-#             'due_date':forms.SelectDateWidget
-#         }
 
 class StyledFormMixin:
     """ Mixinge to apply style to from field"""
@@ -75,17 +66,7 @@ class TaskModelForm(StyledFormMixin,forms.ModelForm):
             'due_date':forms.SelectDateWidget,
             'assigned_to':forms.CheckboxSelectMultiple
         }
-        ''' Manual wigets'''
-        # widgets={
-            
-        #     'due_date':forms.SelectDateWidget,
-        #     'title':forms.TextInput(attrs={
-        #         'class':"border-2 border-gray-300 w-full rounded-lg shadow-sm  focus:border-rose-500  "
-        #     }),
-        #     'description':forms.Textarea(attrs={
-        #         'class':"border-2 border-gray-300 w-full rounded-lg shadow-sm  focus:border-rose-500 "
-        #     })
-        # }
+       
         
     """ Widget Using in Mixing  """
     def __init__(self,*arg,**kwargs):
@@ -95,4 +76,4 @@ class TaskModelForm(StyledFormMixin,forms.ModelForm):
 class TaskDetailModelForm(forms.ModelForm):
     class Meta:
         model=TaskDetail
-        fields=['priority','notes']
+        fields=['priority','notes','asset']

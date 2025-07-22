@@ -18,7 +18,7 @@ from user.forms import LoginForm
 # Test in users
 
 def is_admin(user):
-    return user.groups.filter(name='admin').exists()
+    return user.groups.filter(name='Admin').exists()
 
 
 def Sign_up(request):
@@ -104,16 +104,16 @@ def assign_role(request, user_id):
 
 def create_group(request):
     form = CreateGroupForm()
-    if request.method == "POST":
-        form = CreateGroupForm(request.POST)  # confusion
+    if request.method == 'POST':
+        form = CreateGroupForm(request.POST)
 
         if form.is_valid():
             group = form.save()
-            messages.success(
-                request, f"User{group.username} has been created successfully"
-            )
-            return redirect("create-group")
-    return render(request, "admin/create_group.html", {"form": form})
+            messages.success(request, f"Group {
+                             group.name} has been created successfully")
+            return redirect('create-group')
+
+    return render(request, 'admin/create_group.html', {'form': form})
 
 @user_passes_test(is_admin,login_url='no-permission')
 def group_list(request):

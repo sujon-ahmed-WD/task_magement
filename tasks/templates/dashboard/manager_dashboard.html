@@ -1,7 +1,7 @@
        
-       {% extends "dashboard/commen_deshborad.html" %}
+       {% extends "dashboard/dashboard.html" %}
        {% block title %}manager_dashboard{% endblock title %}
-       {% block task %}
+       {% block tasks %}
        <div class="bg-white-200 rounded-xl shadow-sm  ">
             <div class="grid grid-cols-4 p-4 border-b border-gray-100 text-xm text-gray-500">
                 <div>TASK TITLE</div>
@@ -16,7 +16,7 @@
                     <div class="flex items-center gap-4">
                         <div class="w-2 h-2 bg-green-500 rounded-full"></div>
                         <div>
-                            <span>{{task.title}}</span>
+                            <a href="{% url 'task-details' task.id %}">{{task.title}}</a>
                             <a href="{% url "update-task" task.id %}" class="px-2 py-1 bg-green-500">Edit</a>
                             <form action="{% url "delete-task" task.id %}" 
                             method="POST">
@@ -44,4 +44,4 @@
             </div>
 
         </div>
-         {% endblock task %}
+         {% endblock tasks %}

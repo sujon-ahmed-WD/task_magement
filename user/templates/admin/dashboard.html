@@ -1,13 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
     <title>Document</title>
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+     
   </head>
   <body>
-    <header class="bg-white shadow-md border">
+    <header class="bg-white shadow-md">
       <nav class="container mx-auto px-6 py-3">
         <div class="flex justify-between items-center">
           <a href="index.html" class="text-xl font-bold text-gray-800"
@@ -15,12 +18,12 @@
           >
           <div class="hidden md:flex space-x-4">
             <a
-              href="admin-dashboard.html"
+              href="{% url 'admin-dashboard' %}"
               class="text-gray-600 hover:text-gray-800"
               >Dashboard</a
             >
             <a href="#" class="text-gray-600 hover:text-gray-800">Tasks</a>
-            <a href="{% url "group-list" %}" class="text-gray-600 hover:text-gray-800"
+            <a href="{% url 'group-list' %}" class="text-gray-600 hover:text-gray-800"
               >Groups</a
             >
             <a
@@ -46,12 +49,12 @@
                 class="absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 hidden"
               >
                 <a
-                  href="manager-dashboard.html"
+                  href="{% url 'admin-dashboard' %}"
                   class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >Dashboard</a
                 >
-                <form method="post" action="{% url "logout" %}">
-                  {% csrf_token %}
+                <form method="post" action="{% url 'logout' %}">
+                    {% csrf_token %}
                   <button
                     class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                   >
@@ -84,7 +87,7 @@
           </div>
         </div>
         <div id="mobile-menu" class="md:hidden hidden mt-4">
-          <a href="{% url "create-group" %}" class="block py-2 text-gray-600 hover:text-gray-800"
+          <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
             >Dashboard</a
           >
           <a href="#" class="block py-2 text-gray-600 hover:text-gray-800"
@@ -101,10 +104,9 @@
     </header>
 
     <main>
-      {% block content %}
-      {% include "admin/user_list.html" %}
-      {% endblock content %}
-     
+     {% block content %}
+        {% include "admin/user_list.html" %}
+     {% endblock content %}
     </main>
 
     <script>

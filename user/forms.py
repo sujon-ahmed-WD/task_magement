@@ -12,7 +12,7 @@ class RegisterForm(UserCreationForm):
         fields = ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']
 
     def __init__(self, *args, **kwargs):
-        super(RegisterForm, self).__init__(*args, **kwargs) # super mna holo overrinde
+        super(RegisterForm, self).__init__(*args, **kwargs) # super mna halo override
 
         for fieldname in ['username', 'first_name', 'last_name', 'email', 'password1', 'password2']:
             self.fields[fieldname].help_text = None
@@ -83,7 +83,6 @@ class AssignRoleForm(StyledFormMixin,forms.Form):
         self.apply_styled_widgets()
         
 
-
 class CreateGroupForm(StyledFormMixin, forms.ModelForm):
     permissions = forms.ModelMultipleChoiceField(
         queryset=Permission.objects.all(),
@@ -95,6 +94,5 @@ class CreateGroupForm(StyledFormMixin, forms.ModelForm):
     class Meta:
         model = Group
         fields = ['name', 'permissions']
-
 
 
