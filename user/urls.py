@@ -13,5 +13,4 @@ urlpatterns = [
     path('admin/create-group/',create_group,name='create-group'),
     path('admin/group-list/', group_list , name='group-list')
 
-
 ]

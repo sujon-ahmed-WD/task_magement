@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 from django.shortcuts import redirect, render
-
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required,user_passes_test
@@ -90,14 +89,14 @@ def assign_role(request, user_id):
     if request.method == "POST":
         form = AssignRoleForm(request.POST)
         if form.is_valid():
-            role = form.cleaned_data.get("role")
+            role = form.cleaned_data.get("role")  
             user.groups.clear()
             user.groups.add(role)
             messages.success(
                 request,
                 f"User{user.username} has been assigned to the {role.name} role",
             )
-            return redirect("admin-dashboard")
+            return redirect("admin-dashboard")  
     return render(request, "admin/assign_role.html", {"form": form})
 
 @user_passes_test(is_admin,login_url='no-permission')
@@ -106,7 +105,6 @@ def create_group(request):
     form = CreateGroupForm()
     if request.method == 'POST':
         form = CreateGroupForm(request.POST)
-
         if form.is_valid():
             group = form.save()
             messages.success(request, f"Group {
