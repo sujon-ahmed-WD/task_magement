@@ -5,12 +5,12 @@
 </head>
 <body>
     <h2>Projects</h2>
-    <ul>
+    <ol>
         {% for project in projects %}
             <li>{{ project.name }}</li>
         {% empty %}
             <li>No projects found.</li>
         {% endfor %}
-    </ul>
+    </ol>
 </body>
 </html>

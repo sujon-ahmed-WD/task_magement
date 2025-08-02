@@ -1,11 +1,13 @@
 from django.urls import path
 from user.views import Sign_in, Sign_up,logout_view,activate_user,admin_dashboard,assign_role,create_group,group_list
-
+from django.contrib.auth.views import LoginView
 
 
 urlpatterns = [
     path('signup/', Sign_up, name='signup'),
-    path('sign-in/', Sign_in, name='sign-in'),
+    # path('sign-in/', LoginView.as_view(template_name='admin/user_list.html'), name='sign-in'), => ata holo jokon register page kono appllicatrion thakva ata use korta hova
+    path('sign-in/', LoginView.as_view(), name='sign-in'),
+    # path('sign-in/', Sign_in, name='sign-in'),
     path('logout/', logout_view, name='logout'),
     path('activate/<int:user_id>/<str:token>/',activate_user),
     path('admin/dashboard/',admin_dashboard,name='admin-dashboard'),
