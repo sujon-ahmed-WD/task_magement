@@ -3,13 +3,14 @@ from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, Group
 from django.contrib.auth import login, logout
 from django.contrib.auth.decorators import login_required,user_passes_test
-
 # import user
 from user.forms import CustomRegisterForm, AssignRoleForm, CreateGroupForm
 from django.contrib import messages
 from django.contrib.auth.tokens import default_token_generator
-
 from user.forms import LoginForm
+from django.contrib.auth.views import LoginView
+from django.views.generic import TemplateView
+
 
 
 
@@ -52,6 +53,16 @@ def Sign_in(request):
             login(request, user)
             return redirect("home")
     return render(request, "registration/login.html", {"form": form})
+
+# class CustomLoginView(LoginView):
+class CustomLoginView(LoginView):
+    form_class=LoginForm
+    
+    def get_success_url(self):
+        next_url=self.request.GET.get('next')
+        return next_url if next_url else super().get_success_url()
+    
+
 
 @login_required
 def logout_view(request):
@@ -117,3 +128,20 @@ def create_group(request):
 def group_list(request):
     groups = Group.objects.all()
     return render(request, "admin/groups_list.html", {"groups": groups})
+
+class ProfileView(TemplateView):
+    template_name='accounts/profile.html'
+    
+    def get_context_data(self, **kwargs):
+     context= super().get_context_data(**kwargs)
+     user=self.request.user
+     context['username']=user.username
+     context['name']=user.get_full_name()
+     context['email']=user.email
+     context['member_since']=user.date_joined
+     context['last_login']=user.last_login
+     
+     return context
+        
+        
+    
