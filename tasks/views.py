@@ -277,7 +277,7 @@ def task_detail(request,task_id):
     
     if request.method=='POST':
         selected_status=request.POST.get('task_status')
-        print(selected_status)
+        # print(selected_status)
         task.status = selected_status
         task.save()
         return redirect('task_details',task.id)
@@ -301,7 +301,7 @@ class TaskDetail(DetailView):
     def post(self,request,*args,**kwargs):
         task=self.get_object()
         selected_status=request.POST.get('task_status')
-        print(selected_status)
+        # print(selected_status)
         task.status = selected_status
         task.save()
         return redirect('task_details',task.id)

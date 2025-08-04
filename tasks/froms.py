@@ -10,7 +10,7 @@ class TaskForm(forms.Form):
     assigned_to=forms.MultipleChoiceField(widget=forms.CheckboxSelectMultiple)
     
     def __init__(self,*args,**kwargs):
-        print(args,kwargs)
+        # print(args,kwargs)
         employees=kwargs.pop("employees",[])
         super().__init__(*args,**kwargs)
         
@@ -41,7 +41,7 @@ class StyledFormMixin:
                     'placeholder':f"Enter{field.label.lower()}"
                 })
             elif isinstance(field.widget,forms.SelectDateWidget):
-                print("InSide Date")
+                # print("InSide Date")
                 field.widget.attrs.update({
                     "class":"border-2 border-gray-300  p-3 rounded-lg shadow-sm focus:outline-none focus:border-rose-500 focus:ring-rose-500"
                 })

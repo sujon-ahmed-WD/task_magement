@@ -18,4 +18,4 @@ def  delete_associate_details(sender,instance,**kwargs):
     if instance.details:
         print(instance)
         instance.details.delete()
-        print("DELETE SUCCESSFULLY")
+        # print("DELETE SUCCESSFULLY")
